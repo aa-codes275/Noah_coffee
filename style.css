@@ -177,72 +177,23 @@ header {
 /* =================================            
    تنسيقات الموبايل (Responsive Design) 
    ================================= */
-
-@media screen and (max-width: 600px) {
-    /* 1. تظبيط الهيدر (اللوجو والسلة) */
-    header {
-        padding: 10px 15px;
-    }
-    
-    .logo {
-        font-size: 20px;
-    }
-
-    /* 2. شبكة المنتجات (تخليها 2 في كل سطر) */
+@media screen and (min-width: 768px) {
     .products-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* أهم سطر للموبايل */
-        gap: 10px;
-        padding: 10px;
+        grid-template-columns: repeat(4, 1fr); /* تظهر 4 جنب بعض في الكمبيوتر */
     }
+    .img-box { height: 200px; }
+}
 
-    /* 3. كارت المنتج نفسه */
-    .product-card {
-        padding: 8px;
-        border-radius: 10px;
-    }
+/* سلة المشتريات (تصغيرها للموبايل) */
+.cart {
+    margin: 20px 15px;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+}
 
-    .product-card img {
-        height: 110px; /* تصغير ارتفاع الصورة ليناسب الموبايل */
-        border-radius: 8px;
-    }
-
-    .product-card h3 {
-        font-size: 14px; /* تصغير اسم المنتج */
-        margin: 5px 0;
-    }
-
-    .price {
-        font-size: 15px;
-        margin-bottom: 8px;
-    }
-
-    /* 4. زرار الإضافة للسلة */
-    .add-btn {
-        font-size: 12px;
-        padding: 8px 5px;
-    }
-
-    /* 5. تظبيط السلة اللي تحت خالص */
-    .cart-section {
-        margin: 10px;
-        padding: 12px;
-    }
-
-    #cartItems li {
-        font-size: 13px;
-        padding: 5px 0;
-    }
-
-    /* 6. زرار اطلب الآن (واتساب) */
-    .whatsapp-btn {
-        font-size: 16px;
-        padding: 12px;
-    }
-
-    /* 7. تظبيط الـ Popup (فورم البيانات) */
-    .popup-content {
-        width: 90%; /* ياخد عرض الشاشة كله تقريباً */
-        padding: 15px;
-    }
+/* فورم الطلب Popup */
+.popup-content {
+    width: 90% !important; /* يأخذ مساحة الشاشة في الموبايل */
+    padding: 20px;
 }
