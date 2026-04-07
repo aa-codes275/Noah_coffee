@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بن نوح | Noah Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="startPage" class="start-page">
+        <div class="start-content">
+            <i class="fa-solid fa-mug-hot"></i>
+            <h1>قهوة نوح</h1>
+            <p>أجود انواع البن</p>
+            <button onclick="openStore()"> Start <i class="fa-solid fa-arrow-left"></i></button>
+        </div>
+    </div>
+
+   <header>
+    <div class="logo">بن نوح</div>
+    <div class="cart-btn" onclick="showOrderForm()" style="cursor: pointer;">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span id="cartCount">0</span>
+    </div>
+</header>
+
+    <section class="intro">
+        <p>مرحباً بك في بن نوح :ارقام التواصل: 01091673329 - 01201807866</p>
+    </section>
+
+    <section class="products">
+        <div class="section-title"><h2>قائمة منتجاتنا</h2></div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_6b6jzl6b6jzl6b6j.png" alt="بن ساده">
+                </div>
+                <div class="product-info">
+                    <h3>بن سادة (فاتح - وسط - غامق)</h3>
+                    <p class="price">160 ج.م <span>/ ربع كيلو</span></p>
+                    <button class="add-btn" onclick="chooseWeight('بن سادة', 160)"><i class="fa-solid fa-plus"></i> أضف للسلة</button>
+                </div>
+            </div>
+
+            
+            
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_6b6jzl6b6jzl6b6j.png" alt="قهوه بندق ">
+                </div>
+                <div class="product-info">
+                    <h3>قهوه بندق </h3>
+                    <p class="price">150 ج.م <span>/ ربع كيلو</span></p>
+                    <button class="add-btn" onclick="chooseWeight('قهوه بندق ', 150)"><i class="fa-solid fa-plus"></i> أضف للسلة</button>
+                </div>
+            </div>
+            
+            
+            
+
+            
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_wcxb0pwcxb0pwcxb.png" alt="بن محوج">
+                </div>
+                <div class="product-info">
+                    <h3>بن محوج (مخصوص)</h3>
+                    <p class="price">180 ج.م <span>/ ربع كيلو</span></p>
+                    <button class="add-btn" onclick="chooseWeight('بن محوج', 180)"><i class="fa-solid fa-plus"></i> أضف للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_lcu0wflcu0wflcu0.png" alt="قهوة فرنساوي">
+                </div>
+                <div class="product-info">
+                    <h3>قهوة فرنسية </h3>
+                    <p class="price">150 ج.م <span>/ ربع كيلو</span></p>
+                    <button class="add-btn" onclick="chooseWeight('قهوة فرنساوي', 150)"><i class="fa-solid fa-plus"></i> أضف للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_u3zho3u3zho3u3zh.png " alt="نسكافيه">
+                </div>
+                <div class="product-info">
+                    <h3>نسكافيه (200 جرام)</h3>
+                    <p class="price">180 ج.م <span>/ للعبوة</span></p>
+                    <button class="add-btn" onclick="addToCart('نسكافيه 200 جرام', 180)"><i class="fa-solid fa-plus"></i> أضف للسلة</button>
+                </div>
+            </div>
+
+              <div class="product-card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_44kcwb44kcwb44kc.png" alt="  كاكاو اسباني">
+                </div>
+                <div class="product-info">
+                    <h3>  كاكاو اسباني</h3>
+                    <p class="price">160 ج.م <span>/ ربع كيلو</span></p>
+                    <button class="add-btn" onclick="chooseWeight('  كاكاو اسباني', 160)"><i class="fa-solid fa-plus"></i> أضف للسلة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cart" id="cartSection">
+        <h2><i class="fa-solid fa-basket-shopping"></i> سلة المشتريات</h2>
+        <ul id="cartItems"></ul>
+        <div class="cart-summary">
+            <p>الإجمالي: <span id="total">0</span> ج.م</p>
+            <button class="checkout-btn" onclick="showOrderForm()">إتمام الطلب <i class="fa-brands fa-whatsapp"></i></button>
+        </div>
+    </section>
+
+    <div id="weightPopup" class="popup">
+        <div class="popup-content glass-effect">
+            <div class="popup-header">
+                <h3>اختر الوزن</h3>
+                <span class="close-icon" onclick="closePopup('weightPopup')">&times;</span>
+            </div>
+            <div class="weight-options">
+                <button onclick="addWeight('ربع كيلو', 1)">ربع كيلو</button>
+                <button onclick="addWeight('نصف كيلو', 2)">نصف كيلو</button>
+                <button onclick="addWeight('كيلو', 4)">كيلو</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="orderPopup" class="popup">
+        <div class="popup-content glass-effect">
+            <div class="popup-header">
+                <h2>بيانات التوصيل</h2>
+                <span class="close-icon" onclick="closePopup('orderPopup')">&times;</span>
+            </div>
+            <div class="form-group">
+                <input type="text" id="customerName" placeholder="الاسم الكريم">
+                <input type="tel" id="phone" placeholder="رقم الموبايل">
+                <input type="text" id="address" placeholder="العنوان بالتفصيل">
+                <input type="text" id="city" placeholder="المحافظة / المنطقة">
+                <button class="confirm-btn" onclick="confirmOrder()">تأكيد وإرسال عبر واتساب</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/201091673329" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
