@@ -175,19 +175,32 @@ header {
     margin: 10px;
 }
 /* ================= إصلاح لون النص على الموبايل ================= */
+/* ================= Responsive: تصغير الكروت فقط على الموبايل ================= */
 @media screen and (max-width: 767px) {
-    body, .intro, .product-info h3, .price, .section-title h2 {
-        color: #f4ece6 !important; /* نص أبيض/مائل للذهبي واضح */
+    .products-grid {
+        gap: 15px; /* مسافة أقل بين الكروت */
+        padding: 0 10px;
     }
 
-    /* كروت المنتجات أغمق شوية لتوضيح النص */
     .product-card {
-        background: rgba(30, 24, 22, 0.95) !important;
-        border: 1px solid rgba(212, 175, 55, 0.25);
+        transform: scale(0.9); /* تصغير الكرت بنسبة 10% */
+        border-radius: 12px; /* حجم حواف أصغر */
     }
 
-    /* النوافذ المنبثقة */
-    .popup-content {
-        color: #f4ece6 !important;
+    .img-box {
+        height: 180px; /* أصغر من 220px في الديسكتوب */
+    }
+
+    .product-info h3 {
+        font-size: 18px; /* تصغير الخط شوية مع الحفاظ على اللون */
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+    .add-btn {
+        font-size: 15px;
+        padding: 10px;
     }
 }
