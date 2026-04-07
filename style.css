@@ -174,26 +174,45 @@ header {
     font-size: 16px;
     margin: 10px;
 }
-/* =================================            
-   تنسيقات الموبايل (Responsive Design) 
-   ================================= */
-@media screen and (min-width: 768px) {
-    .products-grid {
-        grid-template-columns: repeat(4, 1fr); /* تظهر 4 جنب بعض في الكمبيوتر */
-    }
-    .img-box { height: 200px; }
+@media screen and (min-width: 1200px) {
+    .products-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; }
 }
 
-/* سلة المشتريات (تصغيرها للموبايل) */
-.cart {
-    margin: 20px 15px;
-    padding: 15px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
+/* تابلت */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; padding: 0 20px; }
+    .product-card { border-radius: 15px; }
+    .product-info h3 { font-size: 20px; }
+    .price { font-size: 20px; }
 }
-
-/* فورم الطلب Popup */
-.popup-content {
-    width: 90% !important; /* يأخذ مساحة الشاشة في الموبايل */
-    padding: 20px;
+/* موبايل عادي */
+@media screen and (max-width: 767px) {
+    .products-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 15px; }
+    .product-card { border-radius: 12px; }
+    .product-info h3 { font-size: 18px; }
+    .price { font-size: 18px; }
+    .add-btn { font-size: 15px; padding: 10px; }
+    .start-content h1 { font-size: 30px; }
+    .start-content button { font-size: 18px; padding: 10px 25px; }
+    .popup-content { width: 95%; padding: 20px; }
+    .weight-options button { font-size: 16px; padding: 10px; }
+    .form-group input { font-size: 16px; padding: 10px; }
+    .confirm-btn { font-size: 16px; padding: 12px; }
+    .cart-summary { font-size: 20px; }
+    .checkout-btn { font-size: 18px; padding: 12px; }
+    .whatsapp-float { width: 50px; height: 50px; font-size: 30px; }
+}
+/* موبايل صغير جدًا */
+@media screen and (max-width: 480px) {
+    .products-grid { gap: 15px; }
+    .product-info h3 { font-size: 16px; }
+    .price { font-size: 16px; }
+    .add-btn { font-size: 14px; padding: 8px; }
+    .cart-summary { font-size: 18px; }
+    .checkout-btn { font-size: 16px; padding: 10px; }
+    .start-content h1 { font-size: 25px; }
+    .start-content button { font-size: 16px; padding: 8px 20px; }
+    .popup-content { padding: 15px; }
+    .weight-options button { font-size: 14px; padding: 8px; }
+    .form-group input { font-size: 14px; padding: 8px; }
 }
