@@ -176,31 +176,20 @@ header {
 }
 /* ================= إصلاح لون النص على الموبايل ================= */
 /* ================= Responsive: تصغير الكروت فقط على الموبايل ================= */
+/* موبايل عادي */
 @media screen and (max-width: 767px) {
-    .products-grid {
-        gap: 15px; /* مسافة أقل بين الكروت */
-        padding: 0 10px;
-    }
-
-    .product-card {
-        transform: scale(0.9); /* تصغير الكرت بنسبة 10% */
-        border-radius: 12px; /* حجم حواف أصغر */
-    }
-
-    .img-box {
-        height: 180px; /* أصغر من 220px في الديسكتوب */
-    }
-
-    .product-info h3 {
-        font-size: 18px; /* تصغير الخط شوية مع الحفاظ على اللون */
-    }
-
-    .price {
-        font-size: 18px;
-    }
-
-    .add-btn {
-        font-size: 15px;
-        padding: 10px;
-    }
+    .products-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 15px; }
+    .product-card { border-radius: 12px; }
+    .product-info h3 { font-size: 18px; color: var(--text-light) !important; }
+    .price { font-size: 18px; color: var(--text-light) !important; }
+    .add-btn { font-size: 15px; padding: 10px; }
+    .start-content h1 { font-size: 30px; color: var(--primary) !important; }
+    .start-content button { font-size: 18px; padding: 10px 25px; }
+    .popup-content { width: 95%; padding: 20px; color: var(--text-light) !important; }
+    .weight-options button { font-size: 16px; padding: 10px; color: var(--text-light) !important; }
+    .form-group input { font-size: 16px; padding: 10px; color: var(--text-light) !important; }
+    .confirm-btn { font-size: 16px; padding: 12px; color: #000 !important; }
+    .cart-summary { font-size: 20px; }
+    .checkout-btn { font-size: 18px; padding: 12px; }
+    .whatsapp-float { width: 50px; height: 50px; font-size: 30px; }
 }
