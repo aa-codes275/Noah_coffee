@@ -1,6 +1,27 @@
+/* إلغاء اللون الأزرق والخط اللي تحت اللينكات */
+a {
+    text-decoration: none !important;
+    color: inherit !important; /* يخلي اللينك ياخد لون الكلام اللي حواليه */
+}
 
+/* منع تغيير لون أرقام التليفونات في الموبايل */
+[href^="tel"], [href^="sms"] {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* لضمان ثبات الألوان في الـ Intro اللي فيه الأرقام */
+.intro p {
+    color: var(--text-muted) !important;
+    -webkit-text-fill-color: var(--text-muted) !important; /* لمتصفحات أيفون */
+}
+
+
+/* ==============================
+   ستايل منيو قهوة نوح (Premium)
+   ============================== */
 :root {
-    --primary: #d4af37;  
+    --primary: #d4af37; /* لون ذهبي فخم */
     --primary-hover: #b5952f;
     --dark-bg: #120e0d;
     --card-bg: rgba(30, 24, 22, 0.85);
@@ -19,7 +40,7 @@ body {
     line-height: 1.6;
 }
 
-
+/* صفحة البداية */
 .start-page {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
@@ -33,29 +54,64 @@ body {
     border: 1px solid rgba(212, 175, 55, 0.3);
 }
 .start-content i { font-size: 60px; color: var(--primary); margin-bottom: 15px; }
-.start-content h1 { font-size: 45px; color: var(--primary); margin-bottom: 5px; }
+.start-content h1 {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 55px; /* حجم كبير لصفحة البداية */
+    color: var(--primary);
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4)); /* إضاءة خفيفة حول الكلمة */
+}
 .start-content button {
-    margin-top: 20px; padding: 12px 30px; font-size: 20px; font-family: 'Cairo';
-    background: var(--primary); color: #000; border: none; border-radius: 30px;
-    cursor: pointer; font-weight: bold; transition: 0.3s;
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-family: 'Cairo', sans-serif;
+    background: var(--primary);
+    color: #120e0d; /* لون غامق عشان يظهر على الذهبي */
+    border: none;
+    border-radius: 50px; /* خليه مدور بزيادة بيبقى أشيك */
+    cursor: pointer;
+    font-weight: 900;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    animation: pulse-gold 2s infinite; /* حركة النبض */
 }
 
+@keyframes pulse-gold {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(212, 175, 55, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); }
+}
 
+.start-content button:hover {
+    background: #fff; /* لما يلمسه يبيض */
+    transform: translateY(-3px);
+}
+
+/* الهيدر */
 header {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 5%; background: rgba(18, 14, 13, 0.9);
     backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
-.logo { font-size: 28px; font-weight: 900; color: var(--primary); }
-.cart-icon { position: relative; font-size: 24px; cursor: pointer; color: var(--primary); }
-#cartCount {
-    position: absolute; top: -10px; right: -15px;
-    background: #e74c3c; color: white; font-size: 14px;
-    width: 22px; height: 22px; border-radius: 50%;
-    display: flex; justify-content: center; align-items: center; font-weight: bold;
+.logo {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 35px;
+    font-weight: 700;
+    
+    /* التعديل هنا عشان الأخطاء تختفي وتشتغل صح */
+    background: linear-gradient(45deg, #d4af37, #f4ece6);
+    background-clip: text; 
+    -webkit-background-clip: text; /* لمتصفحات كروم وسفاري */
+    
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* ضرورية جداً مع الـ clip */
+    
+    display: inline-block;
+    text-shadow: none; /* الظل بيبوظ الـ gradient clip فألغيناه هنا */
 }
-
+/* المقدمة والمنتجات */
 .intro { text-align: center; padding: 20px; color: var(--text-muted); font-size: 18px; }
 .section-title { text-align: center; margin: 40px 0 30px; }
 .section-title h2 { color: var(--primary); font-size: 32px; display: inline-block; border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
@@ -83,6 +139,7 @@ header {
 }
 .add-btn:hover { background: var(--primary); color: #000; }
 
+/* السلة */
 .cart { max-width: 800px; margin: 50px auto; background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2); }
 .cart h2 { color: var(--primary); margin-bottom: 20px; text-align: center; }
 #cartItems { list-style: none; margin-bottom: 20px; }
@@ -96,7 +153,7 @@ header {
 }
 .checkout-btn:hover { background: #1ebe57; }
 
-
+/* النوافذ المنبثقة (Popups) */
 .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
 .glass-effect { background: rgba(30, 24, 22, 0.95); backdrop-filter: blur(15px); border: 1px solid rgba(212, 175, 55, 0.3); padding: 30px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; }
 .popup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
@@ -107,7 +164,7 @@ header {
 .form-group input { width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-family: 'Cairo'; border-radius: 8px; }
 .confirm-btn { width: 100%; padding: 15px; background: var(--primary); color: #000; font-family: 'Cairo'; font-size: 18px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; }
 
-
+/* أيقونة الواتساب */
 .whatsapp-float {
      position: fixed;
      bottom: 20px;
@@ -124,68 +181,60 @@ header {
      transition: 0.3s; 
      }
 .whatsapp-float:hover { transform: scale(1.1); }
-
+/* تصغير قسم السلة اللي تحت */
 .cart-section {
     margin: 15px;
-    padding: 15px; 
+    padding: 15px; /* قللت الحشو */
     background: rgba(255,255,255,0.03);
     border-radius: 12px;
 }
 
 .cart-section h2 {
-    font-size: 18px; 
+    font-size: 18px; /* تصغير العنوان */
     margin-bottom: 10px;
 }
 
-
+/* تصغير عناصر القائمة داخل السلة */
 #cartItems li {
-    padding: 6px 0; 
-    font-size: 12px;
+    padding: 6px 0; /* مسافات أقل بين المنتجات */
+    font-size: 12px; /* خط أصغر */
 }
 
-
+/* تصغير أيقونة الحذف (الإكس) */
 .remove-btn {
     color: #ff4d4d;
     background: none;
     border: none;
-    font-size: 14px; 
+    font-size: 14px; /* كانت 18 وخليناها 14 */
     margin-right: 8px;
     cursor: pointer;
 }
 
-
+/* تصغير زرار الواتساب اللي تحت */
 .whatsapp-btn {
     width: 100%;
-    padding: 12px; 
+    padding: 12px; /* قللت الحجم */
     background: #25D366;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px; 
+    font-size: 16px; /* خط أصغر شوية */
     font-weight: bold;
 }
 
-
+/* تصغير أرقام الإجمالي */
 .total-box {
     font-size: 16px;
     margin: 10px;
 }
-
-
-
+/* ========= Responsive Premium ========= */
+/* موبايل عادي */
 @media screen and (max-width: 767px) {
-    .products-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 15px; }
-    .product-card { border-radius: 12px; }
-    .product-info h3 { font-size: 18px; color: var(--text-light) !important; }
-    .price { font-size: 18px; color: var(--text-light) !important; }
-    .add-btn { font-size: 15px; padding: 10px; }
-    .start-content h1 { font-size: 30px; color: var(--primary) !important; }
-    .start-content button { font-size: 18px; padding: 10px 25px; }
-    .popup-content { width: 95%; padding: 20px; color: var(--text-light) !important; }
-    .weight-options button { font-size: 16px; padding: 10px; color: var(--text-light) !important; }
-    .form-group input { font-size: 16px; padding: 10px; color: var(--text-light) !important; }
-    .confirm-btn { font-size: 16px; padding: 12px; color: #000 !important; }
-    .cart-summary { font-size: 20px; }
-    .checkout-btn { font-size: 18px; padding: 12px; }
-    .whatsapp-float { width: 50px; height: 50px; font-size: 30px; }
+    /* الكود بتاعك زي ما هو، وهنضيف عليه ده: */
+    
+    .intro p {
+        font-size: 14px; /* تصغير الخط شوية للموبايل */
+        color: var(--text-muted) !important;
+        pointer-events: none; /* يخلي الأرقام غير قابلة للضغط كأنها نص عادي */
+    }
 }
