@@ -1,27 +1,25 @@
-/* إلغاء اللون الأزرق والخط اللي تحت اللينكات */
+
 a {
     text-decoration: none !important;
-    color: inherit !important; /* يخلي اللينك ياخد لون الكلام اللي حواليه */
+    color: inherit !important;
 }
 
-/* منع تغيير لون أرقام التليفونات في الموبايل */
+
 [href^="tel"], [href^="sms"] {
     color: inherit !important;
     text-decoration: none !important;
 }
 
-/* لضمان ثبات الألوان في الـ Intro اللي فيه الأرقام */
+
 .intro p {
     color: var(--text-muted) !important;
-    -webkit-text-fill-color: var(--text-muted) !important; /* لمتصفحات أيفون */
+    -webkit-text-fill-color: var(--text-muted) !important; 
 }
 
 
-/* ==============================
-   ستايل منيو قهوة نوح (Premium)
-   ============================== */
+
 :root {
-    --primary: #d4af37; /* لون ذهبي فخم */
+    --primary: #d4af37;
     --primary-hover: #b5952f;
     --dark-bg: #120e0d;
     --card-bg: rgba(30, 24, 22, 0.85);
@@ -40,7 +38,7 @@ body {
     line-height: 1.6;
 }
 
-/* صفحة البداية */
+
 .start-page {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
@@ -56,10 +54,10 @@ body {
 .start-content i { font-size: 60px; color: var(--primary); margin-bottom: 15px; }
 .start-content h1 {
     font-family: 'Aref Ruqaa', serif;
-    font-size: 55px; /* حجم كبير لصفحة البداية */
+    font-size: 55px;
     color: var(--primary);
     margin-bottom: 10px;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4)); /* إضاءة خفيفة حول الكلمة */
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
 }
 .start-content button {
     margin-top: 20px;
@@ -67,14 +65,14 @@ body {
     font-size: 20px;
     font-family: 'Cairo', sans-serif;
     background: var(--primary);
-    color: #120e0d; /* لون غامق عشان يظهر على الذهبي */
+    color: #120e0d; 
     border: none;
-    border-radius: 50px; /* خليه مدور بزيادة بيبقى أشيك */
+    border-radius: 50px; 
     cursor: pointer;
     font-weight: 900;
     transition: all 0.4s ease;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-    animation: pulse-gold 2s infinite; /* حركة النبض */
+    animation: pulse-gold 2s infinite;
 }
 
 @keyframes pulse-gold {
@@ -84,11 +82,11 @@ body {
 }
 
 .start-content button:hover {
-    background: #fff; /* لما يلمسه يبيض */
+    background: #fff; 
     transform: translateY(-3px);
 }
 
-/* الهيدر */
+
 header {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 5%; background: rgba(18, 14, 13, 0.9);
@@ -100,18 +98,18 @@ header {
     font-size: 35px;
     font-weight: 700;
     
-    /* التعديل هنا عشان الأخطاء تختفي وتشتغل صح */
+  
     background: linear-gradient(45deg, #d4af37, #f4ece6);
     background-clip: text; 
-    -webkit-background-clip: text; /* لمتصفحات كروم وسفاري */
+    -webkit-background-clip: text; 
     
     color: transparent;
-    -webkit-text-fill-color: transparent; /* ضرورية جداً مع الـ clip */
+    -webkit-text-fill-color: transparent;
     
     display: inline-block;
-    text-shadow: none; /* الظل بيبوظ الـ gradient clip فألغيناه هنا */
+    text-shadow: none;
 }
-/* المقدمة والمنتجات */
+
 .intro { text-align: center; padding: 20px; color: var(--text-muted); font-size: 18px; }
 .section-title { text-align: center; margin: 40px 0 30px; }
 .section-title h2 { color: var(--primary); font-size: 32px; display: inline-block; border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
@@ -139,7 +137,7 @@ header {
 }
 .add-btn:hover { background: var(--primary); color: #000; }
 
-/* السلة */
+
 .cart { max-width: 800px; margin: 50px auto; background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2); }
 .cart h2 { color: var(--primary); margin-bottom: 20px; text-align: center; }
 #cartItems { list-style: none; margin-bottom: 20px; }
@@ -153,7 +151,7 @@ header {
 }
 .checkout-btn:hover { background: #1ebe57; }
 
-/* النوافذ المنبثقة (Popups) */
+
 .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
 .glass-effect { background: rgba(30, 24, 22, 0.95); backdrop-filter: blur(15px); border: 1px solid rgba(212, 175, 55, 0.3); padding: 30px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; }
 .popup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
@@ -164,7 +162,7 @@ header {
 .form-group input { width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-family: 'Cairo'; border-radius: 8px; }
 .confirm-btn { width: 100%; padding: 15px; background: var(--primary); color: #000; font-family: 'Cairo'; font-size: 18px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; }
 
-/* أيقونة الواتساب */
+
 .whatsapp-float {
      position: fixed;
      bottom: 20px;
@@ -181,60 +179,59 @@ header {
      transition: 0.3s; 
      }
 .whatsapp-float:hover { transform: scale(1.1); }
-/* تصغير قسم السلة اللي تحت */
+
 .cart-section {
     margin: 15px;
-    padding: 15px; /* قللت الحشو */
+    padding: 15px; 
     background: rgba(255,255,255,0.03);
     border-radius: 12px;
 }
 
 .cart-section h2 {
-    font-size: 18px; /* تصغير العنوان */
+    font-size: 18px; 
     margin-bottom: 10px;
 }
 
-/* تصغير عناصر القائمة داخل السلة */
+
 #cartItems li {
-    padding: 6px 0; /* مسافات أقل بين المنتجات */
-    font-size: 12px; /* خط أصغر */
+    padding: 6px 0;
+    font-size: 12px; 
 }
 
-/* تصغير أيقونة الحذف (الإكس) */
+
 .remove-btn {
     color: #ff4d4d;
     background: none;
     border: none;
-    font-size: 14px; /* كانت 18 وخليناها 14 */
+    font-size: 14px;
     margin-right: 8px;
     cursor: pointer;
 }
 
-/* تصغير زرار الواتساب اللي تحت */
+
 .whatsapp-btn {
     width: 100%;
-    padding: 12px; /* قللت الحجم */
+    padding: 12px;
     background: #25D366;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px; /* خط أصغر شوية */
+    font-size: 16px; 
     font-weight: bold;
 }
 
-/* تصغير أرقام الإجمالي */
+
 .total-box {
     font-size: 16px;
     margin: 10px;
 }
-/* ========= Responsive Premium ========= */
-/* موبايل عادي */
+
 @media screen and (max-width: 767px) {
-    /* الكود بتاعك زي ما هو، وهنضيف عليه ده: */
+
     
     .intro p {
-        font-size: 14px; /* تصغير الخط شوية للموبايل */
+        font-size: 14px;
         color: var(--text-muted) !important;
-        pointer-events: none; /* يخلي الأرقام غير قابلة للضغط كأنها نص عادي */
+        pointer-events: none;
     }
 }
