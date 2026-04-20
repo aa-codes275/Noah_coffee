@@ -1,10 +1,10 @@
-// المتغيرات الأساسية
+
 let cart = [];
 let total = 0;
 let selectedProduct = "";
 let selectedPrice = 0;
 
-// إخفاء صفحة البداية
+
 function openStore() {
     document.getElementById("startPage").style.opacity = "0";
     setTimeout(() => {
@@ -12,19 +12,19 @@ function openStore() {
     }, 500);
 }
 
-// التمرير السلس للسلة
+
 function scrollToCart() {
     document.getElementById("cartSection").scrollIntoView({ behavior: 'smooth' });
 }
 
-// فتح نافذة الوزن
+
 function chooseWeight(name, price) {
     selectedProduct = name;
     selectedPrice = price;
     document.getElementById("weightPopup").style.display = "flex";
 }
 
-// إضافة المنتج بناءً على الوزن
+
 function addWeight(weight, multiplier) {
     let finalPrice = selectedPrice * multiplier;
     let productName = `${selectedProduct} (${weight})`;
@@ -32,19 +32,19 @@ function addWeight(weight, multiplier) {
     closePopup('weightPopup');
 }
 
-// إضافة منتج للسلة
+
 function addToCart(name, price) {
     cart.push({ name: name, price: price });
     total += price;
     updateCart();
     
-    // تأثير مرئي عند الإضافة
+   
     let cartIcon = document.getElementById("cartCount");
     cartIcon.style.transform = "scale(1.5)";
     setTimeout(() => cartIcon.style.transform = "scale(1)", 300);
 }
 
-// تحديث عرض السلة
+
 function updateCart() {
     let cartItems = document.getElementById("cartItems");
     cartItems.innerHTML = "";
@@ -62,16 +62,16 @@ function updateCart() {
     document.getElementById("cartCount").textContent = cart.length;
 }
 
-// حذف عنصر من السلة
+
 function removeFromCart(index) {
     total -= cart[index].price;
     cart.splice(index, 1);
     updateCart();
 }
 
-// التحكم في النوافذ المنبثقة
+
 function showOrderForm() {
-    // لو السلة فاضية نبهه، لو فيها منتجات افتح النافذة فوراً
+    
     if (cart.length === 0) {
         alert("السلة فارغة! أضف بعض المنتجات أولاً ☕");
     } else {
@@ -83,7 +83,7 @@ function closePopup(popupId) {
     document.getElementById(popupId).style.display = "none";
 }
 
-// تأكيد الطلب وإرساله للواتساب
+
 function confirmOrder() {
     let name = document.getElementById("customerName").value;
     let phone = document.getElementById("phone").value;
@@ -107,10 +107,10 @@ function confirmOrder() {
 
     orderText += `\n💰 *الإجمالي المطلوب:* ${total} ج.م\n`;
 
-    // قم بتغيير الرقم هنا لرقم صاحب المطعم
+   
     let whatsappNumber = "201091673329"; 
     
-    // تحويل النص لصيغة يقبلها الرابط
+   
     let encodedText = encodeURIComponent(orderText);
     let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
 
